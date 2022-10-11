@@ -1,6 +1,19 @@
+import React from "react";
 import { useEffect } from "react";
+import { MovieType } from "../movie.type";
 
-const Filter = ({
+type props = {
+	activeGenre: number;
+	setActiveGenre: React.Dispatch<
+		React.SetStateAction<number>
+	>;
+	popular: Array<MovieType>;
+	setFiltered: React.Dispatch<
+		React.SetStateAction<Array<MovieType>>
+	>;
+};
+
+const Filter: React.FC<props> = ({
 	setActiveGenre,
 	activeGenre,
 	popular,

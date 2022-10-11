@@ -1,3 +1,7 @@
+h1 {
+	letter-spacing: 2px;
+}
+
 .popular-movies {
 	display: grid;
 	grid-template-columns: repeat(
@@ -18,7 +22,7 @@ img {
 }
 
 h2 {
-	font-size: 0.8rem;
+	font-size: 1rem;
 }
 
 .filter-container button {

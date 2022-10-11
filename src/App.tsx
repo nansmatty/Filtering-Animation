@@ -1,4 +1,7 @@
-import { useEffect, useState } from "react";
+import React, {
+	useEffect,
+	useState,
+} from "react";
 import axios from "axios";
 import "./App.css";
 import Movie from "./component/Movie";
@@ -7,10 +10,15 @@ import {
 	motion,
 	AnimatePresence,
 } from "framer-motion";
+import { MovieType } from "./movie.type";
 
-function App() {
-	const [popular, setPopular] = useState([]);
-	const [filtered, setFiltered] = useState([]);
+const App: React.FC = () => {
+	const [popular, setPopular] = useState<
+		Array<MovieType>
+	>([]);
+	const [filtered, setFiltered] = useState<
+		Array<MovieType>
+	>([]);
 	const [activeGenre, setActiveGenre] =
 		useState(0);
 
@@ -20,14 +28,18 @@ function App() {
 
 	const fetchPopular = async () => {
 		const { data } = await axios.get(
-			process.env.REACT_APP_MOVIE_API
+			process.env.REACT_APP_MOVIE_API as string
 		);
+
+		console.log(data);
+
 		setPopular(data.results);
 		setFiltered(data.results);
 	};
 
 	return (
 		<div>
+			<h1>Filtering Animation</h1>
 			<Filter
 				popular={popular}
 				setFiltered={setFiltered}
@@ -45,6 +57,6 @@ function App() {
 			</motion.div>
 		</div>
 	);
-}
+};
 
 export default App;

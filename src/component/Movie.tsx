@@ -1,6 +1,12 @@
+import React from "react";
 import { motion } from "framer-motion";
+import { MovieType } from "../movie.type";
 
-const Movie = ({ movie }) => {
+type props = {
+	movie: MovieType;
+};
+
+const Movie: React.FC<props> = ({ movie }) => {
 	return (
 		<motion.div
 			initial={{ opacity: 0 }}
